@@ -26,11 +26,11 @@
 // In our unit test flow, we have the capability to provide an enitre model to
 // the Corstone-3xx FVP using semi hosting. Hence, the input allocation pool
 // needs to be large enough to take an entire model. On the FVP,
-// network_model_sec is linked to the DDR, which is large (256MB on
+// input_data_sec is linked to the DDR, which is large (256MB on
 // Corstone-300).
 const size_t input_allocation_pool_size = 100 * 1024 * 1024;
 unsigned char __attribute__((
-    section("network_model_sec"),
+    section("input_data_sec"),
     aligned(16))) input_allocation_pool[input_allocation_pool_size];
 // memory for the model will be allocated from the input_allocation_pool
 char* model_pte = nullptr;
@@ -65,12 +65,12 @@ using executorch::runtime::TensorInfo;
 
 #define METHOD_ALLOCATOR_POOL_SIZE (70 * 1024 * 1024)
 unsigned char __attribute__((
-    section("network_model_sec"),
+    section("input_data_sec"),
     aligned(16))) method_allocation_pool[METHOD_ALLOCATOR_POOL_SIZE];
 
 const size_t temp_allocation_pool_size = 1 * 1024 * 1024;
 unsigned char __attribute__((
-    section("network_model_sec"),
+    section("input_data_sec"),
     aligned(16))) temp_allocation_pool[temp_allocation_pool_size];
 
 void et_pal_init(void) {}
