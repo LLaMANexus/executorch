@@ -121,7 +121,7 @@ DEVEL_REQUIREMENTS = [
 # TODO: Make each example publish its own requirements.txt
 EXAMPLES_REQUIREMENTS = [
     "timm==1.0.7",
-    f"torchaudio==2.6.0.{NIGHTLY_VERSION}",
+    f"torchaudio==2.4.0.{NIGHTLY_VERSION}",
     "torchsr==1.0.4",
     "transformers==4.42.4",
 ]
